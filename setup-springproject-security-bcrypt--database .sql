@@ -1,10 +1,4 @@
--- DROP DATABASE  IF EXISTS `springproject_security_demo_bcrypt`;
 
--- CREATE DATABASE  IF NOT EXISTS `springproject_security_demo_bcrypt`;
-USE `springproject`;
-
---
--- Table structure for table `users`
 --
 DROP TABLE IF EXISTS `authorities`;
 DROP TABLE IF EXISTS `users`;
@@ -27,9 +21,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` 
 VALUES 
-('ravi','{bcrypt}$2b$10$zOVHOJLBxRTb2J/TCo02P.Egdt8OMt4iMzjKIB1OHjnUnWx8MTIHW',1),
-('ramana','{bcrypt}$2b$10$zOVHOJLBxRTb2J/TCo02P.Egdt8OMt4iMzjKIB1OHjnUnWx8MTIHW',1),
-('raju','{bcrypt}$2b$10$zOVHOJLBxRTb2J/TCo02P.Egdt8OMt4iMzjKIB1OHjnUnWx8MTIHW',1);
+('ARYA','{bcrypt}$2b$10$zOVHOJLBxRTb2J/TCo02P.Egdt8OMt4iMzjKIB1OHjnUnWx8MTIHW',1),
+('BRAN','{bcrypt}$2b$10$zOVHOJLBxRTb2J/TCo02P.Egdt8OMt4iMzjKIB1OHjnUnWx8MTIHW',1),
+('SANSA','{bcrypt}$2b$10$zOVHOJLBxRTb2J/TCo02P.Egdt8OMt4iMzjKIB1OHjnUnWx8MTIHW',1);
 
 
 --
@@ -50,10 +44,10 @@ CREATE TABLE `authorities` (
 
 INSERT INTO `authorities` 
 VALUES 
-('ravi','ROLE_INCHARGE'),
-('ramana','ROLE_INCHARGE'),
-('ramana','ROLE_ADMIN'),
-('raju','ROLE_INCHARGE'),
-('raju','ROLE_ADMIN');
+('ARYA','ROLE_INCHARGE'),
+('SANSA','ROLE_INCHARGE'),
+('BRAN','ROLE_ADMIN'),
+('BRAN','ROLE_INCHARGE'),
+('ARYA','ROLE_ADMIN');
 
 

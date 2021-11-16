@@ -17,6 +17,10 @@
 		<java.version>11</java.version>
 		<sonar.projectKey>Srikanth854_Demo__Spring</sonar.projectKey>
 	</properties>
+	<properties>
+  <sonar.organization>srikanth854</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
