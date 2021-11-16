@@ -36,7 +36,7 @@ public class StudentController {
 	public String listStudents(Model theModel)
 	
 	{
-		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
 			List<StudentDto> theStudents = studentService.findAll();
 		 
 		theModel.addAttribute("students",theStudents);
@@ -89,5 +89,10 @@ public class StudentController {
 	public String delete(@RequestParam("studentId") int theId) {
 		studentService.deleteById(theId);
 		return "redirect:/students/list";
+	}
+
+	@GetMapping("/logout")
+	public String logout(){
+		return "fancy-login";
 	}
 }

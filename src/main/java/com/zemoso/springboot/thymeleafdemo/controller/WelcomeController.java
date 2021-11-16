@@ -24,7 +24,7 @@ public class WelcomeController {
     public String listStudents(Model theModel)
 
     {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
         List<StudentDto> theStudents = studentService.findAll();
 
         theModel.addAttribute("students",theStudents);

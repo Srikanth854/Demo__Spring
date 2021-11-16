@@ -60,7 +60,7 @@ public class Department {
 	        {
 	        	theStudents=new ArrayList<>();
 	        }
-	        //theInterns.add(theIntern);
+
 	        theStudent.setDepartment(this);
 	    }
 

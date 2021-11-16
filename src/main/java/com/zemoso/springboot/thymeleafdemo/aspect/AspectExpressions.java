@@ -8,10 +8,13 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import java.util.*;
 
 @Aspect
 @Component
 public class AspectExpressions {
+
+	Formatter formatter = new Formatter();
 	 private static Logger myLogger= LoggerFactory.getLogger(AspectExpressions.class.getName());
 	
 	@After("execution(* com.zemoso.springboot.thymeleafdemo.service.*.save*(..))")
@@ -21,8 +24,7 @@ public class AspectExpressions {
 				myLogger.info("-->Executing  after advice method");
 		        //display the method signature
 		        MethodSignature methodSignature=(MethodSignature) joinPoint.getSignature();
-
-		        myLogger.info("Method : "+methodSignature);
+				myLogger.info(String.format("Method : %s ", methodSignature));
 				
 			}
 	@Before("execution(* com.zemoso.springboot.thymeleafdemo.service.*.*(..))")
@@ -34,7 +36,7 @@ public class AspectExpressions {
 		        //display the method signature
 		        MethodSignature methodSignature=(MethodSignature) joinPoint.getSignature();
 
-		        myLogger.info("Method : "+methodSignature);
+				myLogger.info(String.format("Method : %s ", methodSignature));
 
 			}
 

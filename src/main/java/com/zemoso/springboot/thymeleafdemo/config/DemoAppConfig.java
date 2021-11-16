@@ -12,10 +12,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -43,7 +41,7 @@ public DataSource securityDataSource()
 	try {
 		securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
 	} catch (PropertyVetoException exc) {
-		// TODO Auto-generated catch block
+
 		throw new RuntimeException(exc);
 	}
 	
@@ -79,14 +77,13 @@ private int getIntProperty(String propName) {
 	String propVal=env.getProperty(propName);
 	
 	//convert to int
-	int intPropval=Integer.parseInt(propVal);
-	return intPropval;
+	return(Integer.parseInt(propVal));
+
+
 	
 }
 
-//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-//		configurer.enable();
-//	}
+
 
 
 

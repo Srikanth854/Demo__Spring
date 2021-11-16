@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<sonar.projectKey>Srikanth854_Demo__Spring</sonar.projectKey>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -55,13 +56,13 @@
 		<dependency>
     		<groupId>org.hibernate.validator</groupId>
     		<artifactId>hibernate-validator</artifactId>
-    	<!--   <version>7.0.1.Final</version>-->
+
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-aop</artifactId>
-  <!--  <version>2.4.6</version>-->
+
 </dependency>
 
 <dependency>
@@ -77,7 +78,6 @@
 		<dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-c3p0</artifactId>
- <!--    <version>5.3.6.Final</version> -->
 </dependency>
 	<dependency>
 		<groupId>org.projectlombok</groupId>
@@ -92,8 +92,11 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
- 
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
 
 
 	</dependencies>
@@ -103,6 +106,26 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.5</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

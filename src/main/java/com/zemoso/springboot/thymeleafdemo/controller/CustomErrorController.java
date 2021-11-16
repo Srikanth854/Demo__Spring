@@ -31,9 +31,6 @@ public class CustomErrorController implements ErrorController {
 				else if(statusCode == HttpStatus.METHOD_NOT_ALLOWED.value()){
 					errorPage="errors/405";
 				}
-					else{
-
-			}
 				
 			}
 			return errorPage;

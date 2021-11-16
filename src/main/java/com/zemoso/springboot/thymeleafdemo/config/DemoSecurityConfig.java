@@ -30,15 +30,17 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
+		String role="ADMIN";
+
 		http.authorizeRequests()
-			.antMatchers("/").hasAnyRole("ADMIN","INCHARGE")
-			.antMatchers("/students/list").hasAnyRole("ADMIN","INCHARGE")
-			.antMatchers("/departments/list").hasAnyRole("ADMIN","INCHARGE")
-			.antMatchers("/").hasAnyRole("ADMIN","INCHARGE")
-			.antMatchers("/departments/showForm*").hasAnyRole("ADMIN")
-			.antMatchers("/students/showForm*").hasAnyRole("ADMIN","INCHARGE")
-			.antMatchers("/students/save*").hasAnyRole("INCHARGE", "ADMIN")
-			.antMatchers("/departments/delete").hasRole("ADMIN")
+			.antMatchers("/").hasAnyRole(role,"INCHARGE")
+			.antMatchers("/students/list").hasAnyRole(role,"INCHARGE")
+			.antMatchers("/departments/list").hasAnyRole(role,"INCHARGE")
+			.antMatchers("/").hasAnyRole(role,"INCHARGE")
+			.antMatchers("/departments/showForm*").hasAnyRole(role)
+			.antMatchers("/students/showForm*").hasAnyRole(role,"INCHARGE")
+			.antMatchers("/students/save*").hasAnyRole("INCHARGE", role)
+			.antMatchers("/departments/delete").hasRole(role)
 			.antMatchers("/resources/**").permitAll()
 			.and()
 			.formLogin()
@@ -46,7 +48,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 			.loginProcessingUrl("/authenticateTheUser")
 			.permitAll()
 			.and()
-			.logout().permitAll()
+			.logout()
+				.logoutSuccessUrl("/logout")
+				.permitAll()
 			.and()
 			.exceptionHandling().accessDeniedPage("/access-denied");
 		

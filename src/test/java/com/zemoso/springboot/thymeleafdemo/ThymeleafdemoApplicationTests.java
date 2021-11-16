@@ -6,14 +6,18 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
+import org.junit.Before;
+import com.zemoso.springboot.thymeleafdemo.serviceImpl.DepartmentServiceImpl;
+import com.zemoso.springboot.thymeleafdemo.serviceImpl.StudentServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import org.mockito.Mock;
 import com.zemoso.springboot.thymeleafdemo.dao.DepartmentRepository;
 import com.zemoso.springboot.thymeleafdemo.dao.StudentRepository;
 import com.zemoso.springboot.thymeleafdemo.entity.Department;
@@ -21,22 +25,28 @@ import com.zemoso.springboot.thymeleafdemo.entity.Student;
 import com.zemoso.springboot.thymeleafdemo.service.DepartmentService;
 import com.zemoso.springboot.thymeleafdemo.service.StudentService;
 
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 @SpringBootTest
 public class ThymeleafdemoApplicationTests{
 
-	@Autowired
-	private StudentService studentService;
+	@InjectMocks
+	private StudentServiceImpl studentService;
 
-	@MockBean
+	@Mock
 	private StudentRepository studentRepository;
 	
-	@Autowired
-	private DepartmentService departmentService;
+	@InjectMocks
+	private DepartmentServiceImpl departmentService;
 	
-	@MockBean
+	@Mock
 	private DepartmentRepository departmentRepository;
-	
+
+
+	@Before
+	public void init() {
+		MockitoAnnotations.initMocks(this);
+	}
+
 
 	@Test
 	public void Test1() {

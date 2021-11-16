@@ -30,12 +30,12 @@ public class StudentConverter {
     }
     public List<StudentDto> entityToDto(List<Student> student){
 
-        return student.stream().map(x->entityToDto(x)).collect(Collectors.toList());
+        return student.stream().map(this::entityToDto).collect(Collectors.toList());
      }
 
      public List<Student> dotToEntity(List<StudentDto> studentDtos){
 
-         return studentDtos.stream().map(x->dtoToEntity(x)).collect(Collectors.toList());
+         return studentDtos.stream().map(this::dtoToEntity).collect(Collectors.toList());
      }
 
 
